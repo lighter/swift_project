@@ -14,11 +14,10 @@ protocol DetailViewControllerProtocol {
 
 class DetailViewController: UIViewController {
     var delegate: DetailViewControllerProtocol?
-
     var textLabel: UILabel?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
         let statusBarHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
         let navBarHeight             = self.navigationController?.navigationBar.frame.size.height
@@ -32,6 +31,12 @@ class DetailViewController: UIViewController {
 
         self.view.frame           = frame
         self.view.backgroundColor = UIColor.whiteColor()
+
+        self.view.layoutSubviews()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         // textLabel
         self.textLabel       = UILabel(frame: CGRectMake(10, 50, 200, 100))

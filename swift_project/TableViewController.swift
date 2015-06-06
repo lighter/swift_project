@@ -17,6 +17,9 @@ class TableViewController: UITableViewController, DetailViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var addBarButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "add_new_data")
+        navigationItem.rightBarButtonItem = addBarButton
+        
         // register your class with cell identifier
         self.tableView.registerClass(Cell.self as AnyClass, forCellReuseIdentifier: self.cellIdentifier)
 
@@ -24,6 +27,13 @@ class TableViewController: UITableViewController, DetailViewControllerProtocol {
         for index in 0...100 {
             self.tableData.append("Item \(index)")
         }
+    }
+
+    func add_new_data()
+    {
+        let newDetailViewController: NewDetailViewController = NewDetailViewController()
+
+        self.navigationController?.pushViewController(newDetailViewController, animated: true)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

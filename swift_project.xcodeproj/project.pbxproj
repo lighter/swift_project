@@ -14,6 +14,7 @@
 		EC09B7921B1211EA006D182B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC09B7911B1211EA006D182B /* TableViewController.swift */; };
 		EC09B7941B1211F0006D182B /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC09B7931B1211F0006D182B /* Cell.swift */; };
 		EC09B7961B1236C6006D182B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC09B7951B1236C6006D182B /* DetailViewController.swift */; };
+		EC0EE1271B22DA73004AC233 /* NewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0EE1261B22DA73004AC233 /* NewDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		EC09B7911B1211EA006D182B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EC09B7931B1211F0006D182B /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		EC09B7951B1236C6006D182B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EC0EE1261B22DA73004AC233 /* NewDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				EC09B7711B1211C0006D182B /* AppDelegate.swift */,
-				EC09B7781B1211C0006D182B /* Images.xcassets */,
 				EC09B7931B1211F0006D182B /* Cell.swift */,
 				EC09B7911B1211EA006D182B /* TableViewController.swift */,
 				EC09B7951B1236C6006D182B /* DetailViewController.swift */,
-				EC09B77A1B1211C0006D182B /* LaunchScreen.xib */,
+				EC0EE1261B22DA73004AC233 /* NewDetailViewController.swift */,
 				EC09B76F1B1211BF006D182B /* Supporting Files */,
 			);
 			path = swift_project;
@@ -93,6 +94,8 @@
 		EC09B76F1B1211BF006D182B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EC09B77A1B1211C0006D182B /* LaunchScreen.xib */,
+				EC09B7781B1211C0006D182B /* Images.xcassets */,
 				EC09B7701B1211C0006D182B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -217,6 +220,7 @@
 				EC09B7941B1211F0006D182B /* Cell.swift in Sources */,
 				EC09B7921B1211EA006D182B /* TableViewController.swift in Sources */,
 				EC09B7721B1211C0006D182B /* AppDelegate.swift in Sources */,
+				EC0EE1271B22DA73004AC233 /* NewDetailViewController.swift in Sources */,
 				EC09B7961B1236C6006D182B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

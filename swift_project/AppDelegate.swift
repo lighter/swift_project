@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let myTableViewController: TableViewController = TableViewController()
         myNavigationController = UINavigationController(rootViewController: myTableViewController)
+//        myNavigationController!.navigationBar.barTintColor = UIColor.whiteColor()
         self.window?.rootViewController = myNavigationController
         self.window?.makeKeyAndVisible()
 
