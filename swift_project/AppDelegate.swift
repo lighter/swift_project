@@ -11,17 +11,16 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    private var window: UIWindow?
+    private var myNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
-        if let window = window {
-            window.rootViewController = TableViewController()
-            window.makeKeyAndVisible()
-        }
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let myTableViewController: TableViewController = TableViewController()
+        myNavigationController = UINavigationController(rootViewController: myTableViewController)
+        self.window?.rootViewController = myNavigationController
+        self.window?.makeKeyAndVisible()
 
         return true
     }

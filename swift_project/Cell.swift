@@ -9,19 +9,18 @@
 import UIKit
 
 class Cell: UITableViewCell {
-    var indexLabel: UILabel!
+    var indexLabel: UILabel?
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
 
-        indexLabel = UILabel(frame: CGRectMake(10, 2, 300, 15));
-        indexLabel.text = "";
-        indexLabel.font = UIFont.systemFontOfSize(22)
-        self.addSubview(indexLabel);
+//        self.indexLabel = UILabel(frame: CGRectMake(10, 2, 300, 15))
+//        self.indexLabel!.text = ""
+//        self.indexLabel!.font = UIFont.systemFontOfSize(20)
+//        self.addSubview(self.indexLabel!)
     }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
 }
