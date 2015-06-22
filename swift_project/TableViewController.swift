@@ -8,32 +8,43 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController, DetailViewControllerProtocol {
     let cellIdentifier = "Cell"
-    var tableData = [String]()
-    var selectIndex:String = ""
+    var selectName:String = ""
+
+    var userData = [NSManagedObject]()
+
+    lazy var managedContext:NSManagedObjectContext = {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return appDelegate.managedObjectContext!
+    }()
+
+    override func viewWillAppear(animated: Bool) {
+        let fetchRequest = NSFetchRequest(entityName:"User")
+        var error:NSError?
+        let fetchResults = self.managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]
+        userData = fetchResults
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var addBarButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "add_new_data")
-        navigationItem.rightBarButtonItem = addBarButton
         
         // register your class with cell identifier
         self.tableView.registerClass(Cell.self as AnyClass, forCellReuseIdentifier: self.cellIdentifier)
 
-        // create sample data
-        for index in 0...100 {
-            self.tableData.append("Item \(index)")
-        }
+        navigationItem.rightBarButtonItem = addBarButton
     }
 
     func add_new_data()
     {
         let newDetailViewController: NewDetailViewController = NewDetailViewController()
 
-        self.navigationController?.pushViewController(newDetailViewController, animated: true)
+        self.navigationController!.pushViewController(newDetailViewController, animated: true)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,13 +52,14 @@ class TableViewController: UITableViewController, DetailViewControllerProtocol {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableData.count
+        return self.userData.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as! Cell
 
-        cell.textLabel!.text = self.tableData[indexPath.row]
+        let name_data = self.userData[indexPath.row] as! User
+        cell.textLabel!.text = name_data.name
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator // > mark
 
         return cell
@@ -60,7 +72,8 @@ class TableViewController: UITableViewController, DetailViewControllerProtocol {
         detailViewController.delegate = self
         detailViewController.delegate!.setTextLabel()
 
-        self.selectIndex = String(indexPath!.row)
+        let name_data = self.userData[indexPath!.row] as! User
+        self.selectName = String(name_data.name)
         self.navigationController!.pushViewController(detailViewController, animated: true)
     }
 
@@ -69,6 +82,6 @@ class TableViewController: UITableViewController, DetailViewControllerProtocol {
     }
 
     func setTextLabel() -> String{
-        return self.selectIndex
+        return self.selectName
     }
 }
